@@ -1,11 +1,11 @@
 import * as React from "react";
 import ProductComponent from "./ProductComponent";
+import { useSelector } from 'react-redux';
 import { Product } from "shopify-buy";
-import { store } from "../../store";
+import { RootState } from "../../store";
 
 export default function Products() {
-  const { shopify } = store.getState();
-  const { products } = shopify;
+  const { products } = useSelector((state: RootState) => state.shopify)
 
   if (products) {
     return (
